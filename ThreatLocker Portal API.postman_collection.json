@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "53077314-5617-4e1a-a7cf-bf58ac378599",
+		"name": "ThreatLocker Portal API",
+		"description": "This is a simple API to get facts, facts about cats, meow. You can send a simple RESTful request to this enpoint and retrieve a cat fact in different languages.\n\nContact Support:\n Name: API Support on Discord\n Email: admin@wh.iterabb.it",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37058488"
+	},
+	"item": [
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "Fetches all available Reports for the Organization.",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/?factID=<string>&count=<integer>&lang=eng",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "factID",
+									"value": "<string>",
+									"description": "pass an optional id to call a specific fact"
+								},
+								{
+									"key": "count",
+									"value": "<integer>",
+									"description": "number of facts to return"
+								},
+								{
+									"key": "lang",
+									"value": "eng",
+									"description": "requested locale to retrieve the cat fact in."
+								}
+							]
+						},
+						"description": "By passing in the appropriate options, you can recieve a specific or more than one fact.\n"
+					},
+					"response": [
+						{
+							"name": "You just got some meowfacts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/?factID=<string>&count=<integer>&lang=eng",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "factID",
+											"value": "<string>",
+											"description": "pass an optional id to call a specific fact"
+										},
+										{
+											"key": "count",
+											"value": "<integer>",
+											"description": "number of facts to return"
+										},
+										{
+											"key": "lang",
+											"value": "eng",
+											"description": "requested locale to retrieve the cat fact in."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"data\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"data\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]"
+						},
+						{
+							"name": "bad input parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/?factID=<string>&count=<integer>&lang=eng",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "factID",
+											"value": "<string>",
+											"description": "pass an optional id to call a specific fact"
+										},
+										{
+											"key": "count",
+											"value": "<integer>",
+											"description": "number of facts to return"
+										},
+										{
+											"key": "lang",
+											"value": "eng",
+											"description": "requested locale to retrieve the cat fact in."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]"
+						},
+						{
+							"name": "fact not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/?factID=<string>&count=<integer>&lang=eng",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "factID",
+											"value": "<string>",
+											"description": "pass an optional id to call a specific fact"
+										},
+										{
+											"key": "count",
+											"value": "<integer>",
+											"description": "number of facts to return"
+										},
+										{
+											"key": "lang",
+											"value": "eng",
+											"description": "requested locale to retrieve the cat fact in."
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://meowfacts.herokuapp.com"
+		}
+	]
+}
